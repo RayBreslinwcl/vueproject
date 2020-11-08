@@ -24,7 +24,6 @@ Script标签
 	<script src = "module1.js"></script>
 	<script src = "module2.js"></script>
 	<script src = "module3.js"></script>
-123
 ```
 
   这是最原始的JavaScript文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在window对象中，不同模块的调用都是一个作用域。
@@ -46,7 +45,6 @@ require("module");
 require("../module.js");
 export.doStuff = function(){};
 module.exports = someValue;
-1234
 ```
 
   **优点：**
@@ -78,7 +76,6 @@ define("module",["dep1","dep2"],functian(d1,d2){
 	return someExportedValue;
 });
 require（["module","../file.js"],function(module，file){});
-1234
 ```
 
   **优点**
@@ -109,7 +106,6 @@ define(function(require,exports,module){
 	exports.doSomething = ...;
 	module.exports=...;
 });
-123456
 ```
 
 **优点：**
@@ -198,7 +194,6 @@ module.exports = {
 	resolve:{},
 	watch:true
 }
-123456789101112131415
 ```
 
   直接运行`webpack`命令打包
@@ -214,7 +209,6 @@ module.exports = {
 	exports.sayHi = function(){
 		document.write("<div>Hello Webpack</div>");
 	}
-1234
 ```
 
 1. 在modules下创建一个名为main.js的入口文件，用于打包时设置entry属性
@@ -223,7 +217,6 @@ module.exports = {
 //require 导入一个模块，就可以调用这个模块中的方法了
 var hello = require("./hello");
 hello.sayHi();
-123
 ```
 
 1. 在项目目录下创建webpack.config.js配置文件，使用webpack命令打包
@@ -236,7 +229,6 @@ module.exports = {
 	}
 
 }
-1234567
 ```
 
 1. 在项目目录下创建HTML页面，如index.html，导入webpack打包后的JS文件
@@ -252,7 +244,6 @@ module.exports = {
 			<script src="dist/js/bundle.js"></script>
 		</body>
 	</html>
-12345678910
 ```
 
 1. 在IDEA控制台中直接执行webpack；如果失败的话，就使用管理员权限运行即可！
