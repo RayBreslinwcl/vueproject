@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-binf="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--v-cloak 解决闪烁问题-->
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="vue">
+    <div>地名：{{info2.name}}</div>
+    <div>地址：{{info2.address.country}}--{{info2.address.city}}--{{info2.address.street}}</div>
+    <div>链接：<a v-binf:href="info.url" target="_blank">{{info2.url}}</a> </div>
+</div>
+
+<!--引入js文件-->
+<!--<script src="../js/vue.js"></script>-->
+<!--1.导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#vue",
+        data:{
+            info2:
+            {
+                name:"df",
+                address:{
+                    country:"df",
+                    city:"df",
+                    street:"df"
+                },
+                url:"df"
+            }
+        },
+        //data：属性：vm
+        //这个data是方法,return是返回到当前对象的data属性
+        data(){
+            return{
+                info:{
+                    name:null,
+                    address:{
+                        country:null,
+                        city:null,
+                        street:null
+                    },
+                    url:null
+                }
+            }
+        },
+        mounted(){//钩子函数
+            axios
+                .get('../data/data.json')//注意可能无法访问，在控制台可以看到报错，在前面加../相对路径试试看
+                // .then(response=>(this.info2=response.data));
+                .then(function(response){
+                    console.info(response)
+                    // this.info2.name=response.data.name;
+                    // this.info2.address.country=response.data.address.country;
+                    // this.info2.address.city=response.data.address.city;
+                    // this.info2.address.street=response.data.address.street;
+                    // this.info2.url=response.data.url
+                });
+        }
+    });
+</script>
+
+
+</body>
+</html>
