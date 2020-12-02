@@ -110,7 +110,7 @@
         },
         mounted(){//钩子函数
             axios
-                .get('../data/data.json')//注意可能无法访问，在控制台可以看到报错，在前面加../相对路径试试看
+                .get('./data/data.json')//注意可能无法访问，在控制台可以看到报错，在前面加../相对路径试试看
                 .then(response=>(this.info=response.data));
         }
     });
