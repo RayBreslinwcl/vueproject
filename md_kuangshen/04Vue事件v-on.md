@@ -43,6 +43,16 @@
 
 ![1604737734819](04Vue事件v-on.assets/1604737734819.png)
 
+## 1.1 v-on:简写
+
+@替代v-on:
+
+```sh
+<div id="app">
+    <button @click="sayHi">点我</button>
+</div>
+```
+
 
 
 # 2.事件分类和查询
